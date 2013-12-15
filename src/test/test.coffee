@@ -62,7 +62,7 @@ maxQueriesCount = mockNames.length
 # BEGIN SETTING UP
 
 # Setup Mongoose as usual
-mongoose.connect("mongodb://test:abcd1234@ds037987.mongolab.com:37987/mongoose-redis-test")
+mongoose.connect("mongodb://localhost:27017/mongoose-redis-test")
 # mongoose.connect("mongodb://localhost/mongoose-redis-test")
 
 # Setup test item schema
@@ -212,10 +212,7 @@ describe "Mongoose queries without caching", ->
 describe "Mongoose queries with caching", ->
   before ->
     # Setup mongooseRedisCache
-    mongooseRedisCache mongoose,
-      host: "proxy.openredis.com"
-      port: 11406
-      pass: "BNX8dYfmpAjm52b8dtBcB0lPij4dbZT0PmNurfNCNHmGGPy7Zq8SBR6ejezls11r"
+    mongooseRedisCache mongoose, null
     , (err) ->
       console.log """
         \n--------------------------------
